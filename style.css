@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;700&display=swap');
+/* font-family: 'Roboto', sans-serif; */
+
+* {
+  box-sizing: border-box; /* when we add any border or padding to an element it won't affect it's width */
+}
+
+body {
+  font-family: 'Oswald', sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  width: 200px;
+}
+
+h2 {
+  text-transform: uppercase;
+  color: rgb(34, 34, 34);
+}
+
+.bg-heading {
+  text-transform: uppercase;
+  transform: rotate(-25deg) translateX(-40px) translateY(0px);
+  padding-bottom: 0em;
+  font-size: 8em;
+  position: absolute;
+  z-index: -1;
+  color: rgb(245, 245, 245);
+}
+
+.bg-heading-big {
+  text-transform: uppercase;
+  transform: rotate(-25deg) translateX(20px) translateY(20px);
+  padding-bottom: 0em;
+  font-size: 18em;
+  position: absolute;
+  z-index: -1;
+  color: rgb(235, 235, 235);
+}
+
+.toggle-container span {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-left: 10px;
+}
+
+.toggle {
+  /* hide the actual checkboxes */
+  visibility: hidden;
+}
+
+.label {
+  background: rgb(189, 189, 189);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 15px 0;
+  width: 60px;
+  height: 30px;
+  position: relative;
+}
+
+.toggle:checked + .label {
+  background: #159904;
+}
+
+.ball {
+  background: #fff;
+  height: 26px;
+  width: 26px;
+  border-radius: 0;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  align-items: center;
+  justify-content: center;
+  animation: slideOff 0.3s linear forwards;
+}
+
+.toggle:checked + .label .ball {
+  animation: slideOn 0.3s linear forwards;
+}
+
+@keyframes slideOn {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  50% {
+    transform: translateX(15px) scale(0.9);
+  }
+  100% {
+    transform: translateX(30px) scale(1);
+  }
+}
+
+@keyframes slideOff {
+  0% {
+    transform: translateX(30px) scale(1);
+  }
+  50% {
+    transform: translateX(15px) scale(0.9);
+  }
+  100% {
+    transform: translateX(0px) scale(1);
+  }
+}
